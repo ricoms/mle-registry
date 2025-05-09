@@ -20,19 +20,23 @@ services:
       retries: 5
 
   mlflow:
-    image: ghcr.io/mlflow/mlflow:v2.9.2
+    # image: ghcr.io/mlflow/mlflow:v2.9.2 
+    # https://github.com/mlflow/mlflow/issues/9513 - Official Mlflow docker image does not support postgres #9513
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: mlflow-server
     depends_on:
       postgres:
         condition: service_healthy
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
       - AWS_ACCESS_KEY_ID=minio
       - AWS_SECRET_ACCESS_KEY=minio123
     command: >
-      mlflow server 
+      mlflow server
       --host 0.0.0.0 
       --port 5000 
       --backend-store-uri postgresql://mlflow:mlflow@postgres:5432/mlflow 

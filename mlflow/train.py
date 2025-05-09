@@ -1,21 +1,19 @@
-#!/usr/bin/env python3
-"""
-Simple ML experiment with MLflow tracking
-"""
 import os
+
 import pandas as pd
-import numpy as np
 from sklearn.datasets import load_wine
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
+
 import mlflow
 import mlflow.sklearn
 
-# Set MLflow tracking URI to connect to the MLflow server running in Docker
-mlflow.set_tracking_uri("http://localhost:5000")
+os.environ["AWS_ACCESS_KEY_ID"] = "minio"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
+os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://localhost:9000"
+mlflow.set_tracking_uri("http://localhost:5001")
 
-# Create a new experiment or use an existing one
 EXPERIMENT_NAME = "wine-classification"
 mlflow.set_experiment(EXPERIMENT_NAME)
 
@@ -71,25 +69,28 @@ for n_estimators in n_estimators_options:
                 feature_importances = pd.Series(
                     model.feature_importances_, index=X.columns
                 ).sort_values(ascending=False)
-                
+
                 # Create a feature importance CSV
-                feature_imp_df = pd.DataFrame({
-                    'feature': X.columns,
-                    'importance': model.feature_importances_
-                }).sort_values('importance', ascending=False)
-                
+                feature_imp_df = pd.DataFrame(
+                    {"feature": X.columns, "importance": model.feature_importances_}
+                ).sort_values("importance", ascending=False)
+
                 # Save feature importance to CSV
                 feature_imp_path = "feature_importance.csv"
                 feature_imp_df.to_csv(feature_imp_path, index=False)
                 mlflow.log_artifact(feature_imp_path)
-                
+
                 # Log the model
                 mlflow.sklearn.log_model(model, "random_forest_model")
-                
+
                 # Print run info
-                print(f"Run completed with parameters: n_estimators={n_estimators}, "
-                      f"max_depth={max_depth}, min_samples_split={min_samples_split}")
+                print(
+                    f"Run completed with parameters: n_estimators={n_estimators}, "
+                    f"max_depth={max_depth}, min_samples_split={min_samples_split}"
+                )
                 print(f"Accuracy: {accuracy:.4f}, F1 Score: {f1:.4f}")
                 print("-" * 50)
 
-print("All model runs completed. View results in the MLflow UI at http://localhost:5000")
+print(
+    "All model runs completed. View results in the MLflow UI at http://localhost:5000"
+)
