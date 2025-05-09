@@ -83,5 +83,5 @@ For a visual representation of each architecture:
 
 Both tools are set up to run the same wine classification example with a Random Forest classifier. See the respective directories for setup instructions:
 
-- [MLflow Example](./mlflow/README.md)
-- [DVC Example](./dvc/README.md)
+- [MLflow Example](./mlflow-wine/README.md)
+- [DVC Example](./dvc-wine/README.md)
