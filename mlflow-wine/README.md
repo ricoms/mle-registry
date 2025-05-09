@@ -7,8 +7,8 @@ This directory contains a setup for running MLflow tracking server locally using
 ### Prerequisites
 
 - Docker and Docker Compose installed
-- Python 3.8+ installed (for running the experiment)
-- pip (Python package manager)
+- Python 3.13+ installed (for running the experiment)
+- uv (Python package manager)
 
 ### Running MLflow Server
 

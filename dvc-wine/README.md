@@ -7,9 +7,8 @@ This directory contains a setup for running a simple machine learning experiment
 ### Prerequisites
 
 - Docker and Docker Compose installed
-- Python 3.8+ installed (for running the experiment)
-- pip (Python package manager)
-- DVC installed (`pip install dvc dvc[s3]`)
+- Python 3.13+ installed (for running the experiment)
+- uv (Python package manager)
 
 ### Running DVC Storage Backend
 
