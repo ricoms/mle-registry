@@ -1,6 +1,16 @@
-# MLflow Experiment
+# MLflow Experiment: Individual-Centric ML Tracking
 
-This directory contains a setup for running MLflow tracking server locally using Docker Compose and a sample machine learning experiment that integrates with MLflow.
+This directory contains a setup for running MLflow tracking server locally using Docker Compose and a sample machine learning experiment that integrates with MLflow. MLflow provides a comprehensive UI-focused approach to experiment tracking that optimizes for individual productivity.
+
+## MLflow's Individual-Focused Approach
+
+MLflow provides an experimentation workflow that:
+- **Centralizes tracking**: All experiments visible in one UI dashboard
+- **Prioritizes visualization**: Rich UI for comparing parameters and metrics
+- **Focuses on individual productivity**: Optimized for single data scientist workflows
+- **Simplifies experiment logging**: Automatic tracking through Python API
+
+While powerful, this approach contrasts with DVC's Git-based collaborative model that aligns more closely with Martin Fowler's continuous delivery principles and Dave Farley's emphasis on engineering discipline.
 
 ## Setup
 
@@ -12,13 +22,13 @@ This directory contains a setup for running MLflow tracking server locally using
 
 ### Running MLflow Server
 
-To start the MLflow server and its dependencies (PostgreSQL and MinIO):
+To start the MLflow server and its dependencies:
 
 ```bash
 docker-compose up -d
 ```
 
-This will start:
+This will start three separate services:
 - PostgreSQL: For MLflow's backend store (metrics, parameters, etc.)
 - MinIO: For artifact storage (models, plots, etc.)
 - MLflow Server: UI and tracking server
@@ -40,7 +50,7 @@ pip install -r requirements.txt
 
 2. Run the experiment:
 ```bash
-python ml_experiment.py
+python train.py
 ```
 
 The experiment trains multiple Random Forest classifiers on the wine dataset with different hyperparameters and logs the results to MLflow.
@@ -64,6 +74,18 @@ After running the experiment, visit the MLflow UI at http://localhost:5000 to:
 - View metrics and parameters
 - Download or load trained models
 - View artifacts like feature importance data
+
+## Comparison with Collaborative Approaches
+
+While MLflow excels at individual experimentation, it presents challenges for team-based development:
+
+1. **Infrastructure Complexity**: Requires maintaining multiple services
+2. **Limited Git Integration**: Less natural fit with software engineering workflows
+3. **CI/CD Challenges**: Custom work needed to integrate with continuous delivery pipelines
+4. **Collaboration Model**: Favors independent work followed by sharing, rather than collaborative development
+5. **Custom Packaging**: Uses its own model packaging format, separate from Python standards
+
+As Dave Farley notes in "Continuous Delivery," production systems benefit from frequent integration, automated testing, and engineering discipline—areas where Git-based workflows typically excel.
 
 ## Shutting Down
 

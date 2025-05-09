@@ -19,10 +19,12 @@ For a visual representation of each architecture:
 | **Entry Barrier** | Setup multiple services | Simpler initial setup |
 | **Scaling Complexity** | Higher (multiple services to manage) | Lower (fewer components) |
 | **Packaging Approach** | Custom MLflow packaging format (MLmodel) | Compatible with native Python packaging |
+| **Development Model** | Individual-centric with centralized sharing | Team-oriented with Git collaboration |
+| **Continuous Integration** | Requires custom integration | Native Git-based CI/CD compatibility |
 
 ## Impact on Data Science Workflow
 
-### MLflow Approach
+### MLflow Approach: Individual-Centric Experimentation
 
 **Advantages:**
 - Centralized experiment tracking with rich UI for comparing runs
@@ -39,9 +41,10 @@ For a visual representation of each architecture:
 - More resource-intensive
 - Dependency on external services (PostgreSQL, object storage)
 - Custom packaging system that's separate from standard Python practices
-- May require adaptations when integrating with existing Python projects
+- Encourages siloed work with after-the-fact sharing
+- Creates friction when integrating with modern CI/CD pipelines
 
-### DVC Approach
+### DVC Approach: Collaborative Engineering
 
 **Advantages:**
 - Git-integrated workflow fits with existing development practices
@@ -51,7 +54,9 @@ For a visual representation of each architecture:
 - Pipeline definition for reproducible workflows
 - Natural integration with CI/CD systems
 - Seamless compatibility with Python's native packaging ecosystem
-- No need to adapt to proprietary packaging formats
+- Promotes collaborative workflows through Git's branching and merging
+- Enables "Continuous Delivery for Machine Learning" (CD4ML) principles
+- Brings engineering discipline to data science processes
 
 **Disadvantages:**
 - Steeper learning curve for Git-unfamiliar data scientists
@@ -62,22 +67,38 @@ For a visual representation of each architecture:
 
 ## Choosing Between MLflow and DVC
 
-**Consider MLflow when:**
+### Consider MLflow when:
 - Working in teams with diverse technical backgrounds
 - Requiring comprehensive experiment visualization and comparison
 - Managing a large number of experiments and models
 - Needing a model registry for deployment
 - Having infrastructure resources to support multiple services
-- Unified packaging approach is preferred over standard Python packaging
+- Team is mostly composed of data scientists with limited software engineering background
 
-**Consider DVC when:**
+### Consider DVC when:
 - Working in Git-savvy teams with software engineering practices
 - Focusing on reproducibility and data version control
 - Working in environments with limited infrastructure
 - Needing offline operation capabilities
-- Integrating tightly with CI/CD pipelines
-- Preferring to use standard Python packaging practices
-- Requiring flexibility in model deployment pipelines
+- Applying "Continuous Delivery" principles to ML workflows
+- Promoting collaboration between data scientists, engineers, and DevOps
+- Building rigorous, production-grade ML systems
+- Implementing Martin Fowler's and Dave Farley's principles of engineering discipline
+
+## Software Engineering Principles Applied to ML
+
+The choice between MLflow and DVC reflects a broader philosophy about how machine learning systems should be built:
+
+**MLflow** emphasizes exploratory data science with tools that make individual experimentation efficient but with less focus on software engineering practices.
+
+**DVC** emphasizes Martin Fowler's concept of "Continuous Delivery" applied to ML, where:
+- Version control is fundamental (not just for code but for data and models too)
+- Reproducibility is a first-class concern
+- Automation of testing and deployment is built into the workflow
+- Cross-functional collaboration is enabled through shared tools and practices
+- Changes are made incrementally through small, validated steps
+
+As Dave Farley emphasizes, treating machine learning as software engineering means bringing the same rigor, automated testing, and continuous integration practices that have proven successful in traditional software development. DVC's approach aligns closely with these principles.
 
 ## Getting Started
 
