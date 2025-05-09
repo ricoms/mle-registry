@@ -9,7 +9,7 @@ DVC brings software engineering discipline to machine learning by:
 - **Simplicity**: Minimal infrastructure (just MinIO for remote storage)
 - **Collaboration**: Enables cross-functional teams to work together through Git
 - **DevOps Ready**: Naturally fits into CI/CD pipelines and deployment workflows
-- **Continuous Delivery for ML**: Supports Martin Fowler's principles of incremental, tested changes
+- **Continuous Delivery for ML**: Supports principles of incremental, tested changes
 
 ## Setup
 
@@ -78,8 +78,8 @@ With DVC, you gain these advantages:
 1. **Git-Centered Workflow**: Changes to code, data, and models are tracked together through standard Git practices
 2. **Team Collaboration**: Multiple data scientists can work on branches and merge changes using familiar Git workflows
 3. **DevOps Integration**: CI/CD systems can pull code and data for automated testing and deployment
-4. **Engineering Discipline**: As Dave Farley advocates, brings rigor and repeatability to ML processes
-5. **Incremental Development**: Supports Martin Fowler's continuous delivery principles with small, validated changes
+4. **Engineering Discipline**: Brings rigor and repeatability to ML processes
+5. **Incremental Development**: Supports continuous delivery principles with small, validated changes
 
 ## Working with DVC
 

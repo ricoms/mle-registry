@@ -10,7 +10,7 @@ MLflow provides an experimentation workflow that:
 - **Focuses on individual productivity**: Optimized for single data scientist workflows
 - **Simplifies experiment logging**: Automatic tracking through Python API
 
-While powerful, this approach contrasts with DVC's Git-based collaborative model that aligns more closely with Martin Fowler's continuous delivery principles and Dave Farley's emphasis on engineering discipline.
+While powerful, this approach contrasts with DVC's Git-based collaborative model that aligns more closely with continuous delivery principles and emphasis on engineering discipline.
 
 ## Setup
 
@@ -85,7 +85,7 @@ While MLflow excels at individual experimentation, it presents challenges for te
 4. **Collaboration Model**: Favors independent work followed by sharing, rather than collaborative development
 5. **Custom Packaging**: Uses its own model packaging format, separate from Python standards
 
-As Dave Farley notes in "Continuous Delivery," production systems benefit from frequent integration, automated testing, and engineering discipline—areas where Git-based workflows typically excel.
+As in "Continuous Delivery," production systems benefit from frequent integration, automated testing, and engineering discipline—areas where Git-based workflows typically excel.
 
 ## Shutting Down
 

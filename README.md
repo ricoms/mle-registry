@@ -83,7 +83,7 @@ For a visual representation of each architecture:
 - Applying "Continuous Delivery" principles to ML workflows
 - Promoting collaboration between data scientists, engineers, and DevOps
 - Building rigorous, production-grade ML systems
-- Implementing Martin Fowler's and Dave Farley's principles of engineering discipline
+- Implementing principles of engineering discipline
 
 ## Software Engineering Principles Applied to ML
 
@@ -91,14 +91,14 @@ The choice between MLflow and DVC reflects a broader philosophy about how machin
 
 **MLflow** emphasizes exploratory data science with tools that make individual experimentation efficient but with less focus on software engineering practices.
 
-**DVC** emphasizes Martin Fowler's concept of "Continuous Delivery" applied to ML, where:
+**DVC** emphasizes concept of "Continuous Delivery" applied to ML, where:
 - Version control is fundamental (not just for code but for data and models too)
 - Reproducibility is a first-class concern
 - Automation of testing and deployment is built into the workflow
 - Cross-functional collaboration is enabled through shared tools and practices
 - Changes are made incrementally through small, validated steps
 
-As Dave Farley emphasizes, treating machine learning as software engineering means bringing the same rigor, automated testing, and continuous integration practices that have proven successful in traditional software development. DVC's approach aligns closely with these principles.
+Treating machine learning as software engineering means bringing the same rigor, automated testing, and continuous integration practices that have proven successful in traditional software development. DVC's approach aligns closely with these principles.
 
 ## Getting Started
 
