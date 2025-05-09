@@ -12,12 +12,19 @@ profile = "black"
 [tool.ruff]
 line-length = 88
 
+[tool.uv.workspace]
+members = [
+    "dvc",
+    "mlflow",
+]
+
 [dependency-groups]
 dev = [
     "isort>=6.0.1",
     "ruff>=0.11.9",
 ]
 dvc = [
+    "dvc[s3]>=3.59.2",
     "joblib>=1.5.0",
     "matplotlib>=3.10.3",
     "pandas>=2.2.3",
